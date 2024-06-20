@@ -1,0 +1,19 @@
+# reviewRoutesTest.http
+
+### Create a new review
+POST http://localhost:5203/api/reviews
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+{
+  "userId": 1,
+  "tourId": 1,
+  "rating": 5,
+  "reviewText": "This tour was amazing!"
+}
+
+### Get reviews for a tour
+# Note: Replace <tourId> with the actual tour ID
+GET http://localhost:5203/api/tours/<tourId>/reviews
+Content-Type: application/json
+Authorization: Bearer <your_token>

@@ -1,0 +1,17 @@
+# bookingRoutesTest.http
+
+### Create a new booking
+POST http://localhost:5203/api/bookings
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+{
+  "userId": 1,
+  "tourId": 1
+}
+
+### Get booking by ID
+# Note: Replace <bookingId> with the actual booking ID
+GET http://localhost:5203/api/bookings/<bookingId>
+Content-Type: application/json
+Authorization: Bearer <your_token>

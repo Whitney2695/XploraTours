@@ -1,0 +1,38 @@
+### Create a new user
+POST http://localhost:5203/api/users
+Content-Type: application/json
+
+{
+  "fullName": "janet Doe",
+  "passwordHash": "hashedPassword124",
+  "email": "janetdoe@example.com",
+  "phoneNumber": "1237567990",
+  "profilePicture": "profilePicUrl"
+}
+
+### Get user by ID
+# After creating the user, replace <userId> with the actual user ID from the response
+GET http://localhost:5203/api/users/4
+Content-Type: application/json
+
+### Update a user
+# After creating the user, replace <userId> with the actual user ID from the response
+PUT http://localhost:5203/api/users/<userId>
+Content-Type: application/json
+
+{
+  "fullName": "John Doe Updated",
+  "passwordHash": "newHashedPassword123",
+  "email": "john.doe.updated@example.com",
+  "phoneNumber": "0987654321",
+  "profilePicture": "newProfilePicUrl"
+}
+
+### Get updated user by ID
+# After updating the user, replace <userId> with the actual user ID from the response
+GET http://localhost:5203/api/users/1
+Content-Type: application/json
+
+###get all users
+GET http://localhost:5203/api/getAllUsers
+Content-Type: application/json

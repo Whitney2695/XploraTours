@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "this is a project on xplora tours",
+  "main": " server.js",
+  "scripts": {
+    "build": "tsc --watch",
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whitney2695/XploraTours.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whitney2695/XploraTours/issues"
+  },
+  "homepage": "https://github.com/Whitney2695/XploraTours#readme",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/mssql": "^9.1.5",
+    "@types/nodemon": "^1.19.6",
+    "@types/uuid": "^9.0.8",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mssql": "^11.0.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.6",
+    "nodemon": "^3.1.4"
+  }
+}
