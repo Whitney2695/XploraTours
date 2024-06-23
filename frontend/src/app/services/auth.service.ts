@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://api.example.com/auth'; // Replace with your API endpoint
+  private apiUrl = 'https://localhost/5203/auth'; // Replace with your API endpoint
 
   constructor(private http: HttpClient) {}
 

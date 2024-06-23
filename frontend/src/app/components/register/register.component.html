@@ -1,16 +1,23 @@
 <div class="auth-form">
-    <form (ngSubmit)="register()">
-      <h2>Register</h2>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" [(ngModel)]="registerForm.email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" [(ngModel)]="registerForm.password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Register</button>
-      <p class="toggle-link">Already have an account? <a (click)="toggleForm()">Login</a></p>
-    </form>
-  </div>
-  
+  <form (ngSubmit)="register()">
+    <h2>Register</h2>
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" [(ngModel)]="registerForm.fullName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="registerForm.email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="registerForm.password" required>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="registerForm.phoneNumber">
+    </div>
+    <button type="submit" class="btn btn-primary"><a routerLink="/register">Register</a></button>
+    <p class="toggle-link">Already have an account? <a routerLink="/login">Login</a></p>
+  </form>
+</div>

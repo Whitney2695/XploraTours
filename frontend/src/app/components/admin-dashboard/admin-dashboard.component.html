@@ -5,10 +5,11 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <ul>
-            <li><a routerLink="/admin/manage-tours">Manage Tours</a></li>
-            <li><a routerLink="/admin/manage-users">Manage Users</a></li>
-            <li><a routerLink="/admin/update-profile">Update Profile</a></li>
+            <li><a routerLink="/admin/manage-tours" (click)="showCreateForm = false">Manage Tours</a></li>
+            <li><a routerLink="/admin/manage-users" (click)="showCreateForm = false">Manage Users</a></li>
+            <li><a routerLink="/admin/update-profile" (click)="showCreateForm = false">Update Profile</a></li>
         </ul>
+        <button (click)="toggleCreateForm()">Create Tour</button>
     </div>
 
     <!-- Main Content Area -->
@@ -30,7 +31,7 @@
         </div>
 
         <!-- Tour List -->
-        <div class="tour-list" *ngIf="currentTab === 'manage-tours'">
+        <div class="tour-list" *ngIf="currentTab === 'manage-tours' && !showCreateForm">
             <div *ngFor="let tour of tours">
                 <img [src]="tour.imageUrl" alt="Tour Image">
                 <h4>{{ tour.destination }}</h4>
@@ -41,7 +42,7 @@
         </div>
 
         <!-- User Management -->
-        <div class="user-management" *ngIf="currentTab === 'manage-users'">
+        <div class="user-management" *ngIf="currentTab === 'manage-users' && !showCreateForm">
             <div *ngFor="let user of users">
                 <h4>{{ user.username }}</h4>
                 <p>Email: {{ user.email }}</p>
@@ -50,7 +51,7 @@
         </div>
 
         <!-- Update Profile Form -->
-        <div class="update-profile" *ngIf="currentTab === 'update-profile'">
+        <div class="update-profile" *ngIf="currentTab === 'update-profile' && !showCreateForm">
             <!-- Implement update profile form -->
             <form>
                 <label>Name:</label>
@@ -58,6 +59,24 @@
                 <label>Email:</label>
                 <input type="email" [(ngModel)]="currentUser.email" name="email">
                 <button (click)="updateProfile()">Update Profile</button>
+            </form>
+        </div>
+
+        <!-- Create Tour Form -->
+        <div class="create-tour" *ngIf="showCreateForm">
+            <form (ngSubmit)="createTour()">
+                <label>Destination:</label>
+                <input type="text" [(ngModel)]="newTour.destination" name="destination" required>
+                <label>Duration (days):</label>
+                <input type="number" [(ngModel)]="newTour.duration" name="duration" required>
+                <label>Price:</label>
+                <input type="number" [(ngModel)]="newTour.price" name="price" required>
+                <label>Tour Type:</label>
+                <input type="text" [(ngModel)]="newTour.tourType" name="tourType" required>
+                <label>Image URL:</label>
+                <input type="text" [(ngModel)]="newTour.imageUrl" name="imageUrl" required>
+                <button type="submit">Create Tour</button>
+                <button type="button" (click)="toggleCreateForm()">Cancel</button>
             </form>
         </div>
     </div>

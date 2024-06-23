@@ -2,46 +2,32 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  @Output() toggle = new EventEmitter<boolean>();
-
   registerForm = {
+    fullName: '',
     email: '',
-    password: ''
+    password: '',
+    phoneNumber: ''
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   register() {
-    // Implement registration logic here, e.g., call a service to register the user
-    // For simplicity, let's assume a success scenario where registration is successful
-    // You would typically call a service method here to handle registration
-    // Example:
-    // this.authService.register(this.registerForm).subscribe(
-    //   (response) => {
-    //     // Registration successful, you might want to navigate somewhere or show a success message
-    //   },
-    //   (error) => {
-    //     // Handle registration error
-    //   }
-    // );
-    console.log('Registering user with email:', this.registerForm.email);
-    console.log('Password:', this.registerForm.password);
-    // After successful registration, emit an event to toggle back to login form
-    this.toggle.emit(true); // Emitting to parent component (landing component)
-  }
+    // Here you can implement your registration logic, e.g., sending data to backend API
+    console.log('Registering user:', this.registerForm);
 
-  toggleForm() {
-    this.toggle.emit(true); // Emitting to parent component (landing component)
+    // After successful registration, navigate to another route (e.g., home)
+    this.router.navigate(['/home']);
   }
 }
-

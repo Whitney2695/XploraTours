@@ -21,6 +21,8 @@ export class AdminDashboardComponent implements OnInit {
   tours: any[] = [];
   users: any[] = [];
   currentUser: any = {};
+  showCreateForm: boolean = false; // Show or hide create tour form
+  newTour: any = {}; // Model for new tour
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -55,7 +57,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   fetchUsers() {
-      this.http.get<any[]>('http://your-backend-api/users').subscribe(
+      this.http.get<any[]>('http://localhost:5203/api/alltours').subscribe(
           data => {
               this.users = data;
           },
@@ -67,22 +69,33 @@ export class AdminDashboardComponent implements OnInit {
 
   softDeleteTour(tour: any) {
       // Implement soft delete logic here
-      // Example: Call API to soft delete tour
   }
 
   editTour(tour: any) {
-      // Navigate to edit tour page or implement inline editing
-      // Example: this.router.navigate(['/admin/edit-tour', tour.id]);
+      // Implement edit tour logic here
   }
 
   deleteUser(user: any) {
       // Implement delete user logic here
-      // Example: Call API to delete user
   }
 
   updateProfile() {
       // Implement update profile logic here
-      // Example: Call API to update current user's profile
-      // Refresh currentUser data after update if necessary
+  }
+
+  toggleCreateForm() {
+      this.showCreateForm = !this.showCreateForm;
+  }
+
+  createTour() {
+      this.http.post('http://localhost:5203/api/tours', this.newTour).subscribe(
+          data => {
+              this.showCreateForm = false;
+              this.fetchTours();
+          },
+          error => {
+              console.log('Error creating tour: ', error);
+          }
+      );
   }
 }

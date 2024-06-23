@@ -153,10 +153,13 @@
       <div class="hero">
         <h1>Explore the World</h1>
         <p>Join us on an adventure of a lifetime. Discover new places, experience different cultures, and make unforgettable memories. Our travel guides and tips will help you plan the perfect trip, whether you're looking for a relaxing beach vacation or an exciting mountain trek.</p>
-        <button class="btn btn-primary" onclick="showLogin()">Try Now</button>
+        
+        <!-- Replace button with Angular routerLink -->
+        <a class="btn btn-primary" routerLink="/login">Try Now</a>
       </div>
     </div>
 
+    <!-- Your existing target contents -->
     <div class="target-content" id="home">
       <h2>Welcome to our Home Page!</h2>
       <p>This is the main page where you can find updates and news about our travel services.</p>
@@ -183,28 +186,5 @@
       </ul>
     </div>
   </section>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('nav ul.right li a');
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-          event.preventDefault();
-          const target = this.getAttribute('data-target');
-          const targetContent = document.getElementById(target);
-
-          // Hide all target contents
-          const allTargetContents = document.querySelectorAll('.target-content');
-          allTargetContents.forEach(content => {
-            content.classList.remove('show');
-          });
-
-          // Display the clicked target content
-          targetContent.classList.add('show');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
