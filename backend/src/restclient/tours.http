@@ -1,0 +1,38 @@
+### Create Tour
+POST http://localhost:5203/api/tours
+Content-Type: application/json
+
+{
+  "destination": "madives",
+  "duration": 6,
+  "price": 1400.50,
+  "tourType": "Luxury",
+  "description": "A luxurious trip to maldives."
+}
+
+### Get All Tours
+GET http://localhost:5203/api/alltours
+
+
+### Get Tour By ID
+GET http://localhost:5203/api/tours/7
+
+### Update Tour
+PUT http://localhost:5203/api/tours/7
+Content-Type: application/json
+
+{
+  "destination": "kenia",
+  "duration": 10,
+  "price": 1500.75,
+  "tourType": "Luxury",
+  "description": "An extended luxurious trip to Paris."
+}
+
+### Soft delete
+DELETE http://localhost:5203/api/tours/
+Content-Type: application/json
+
+{
+  "softDelete": true
+}

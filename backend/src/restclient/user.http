@@ -3,36 +3,36 @@ POST http://localhost:5203/api/users
 Content-Type: application/json
 
 {
-  "fullName": "janet Doe",
-  "passwordHash": "hashedPassword124",
-  "email": "janetdoe@example.com",
-  "phoneNumber": "1237567990",
+  "fullName": "Jane Doe",
+  "passwordHash": "hashedPassword123",
+  "email": "janedoe@example.com",
+  "phoneNumber": "1234567890",
   "profilePicture": "profilePicUrl"
 }
 
 ### Get user by ID
-# After creating the user, replace <userId> with the actual user ID from the response
-GET http://localhost:5203/api/users/4
+# Replace <userId> with the actual user ID from the response
+GET http://localhost:5203/api/users/<userId>
 Content-Type: application/json
 
 ### Update a user
-# After creating the user, replace <userId> with the actual user ID from the response
+# Replace <userId> with the actual user ID from the response
 PUT http://localhost:5203/api/users/<userId>
 Content-Type: application/json
 
 {
-  "fullName": "John Doe Updated",
+  "fullName": "Jane Doe Updated",
   "passwordHash": "newHashedPassword123",
-  "email": "john.doe.updated@example.com",
+  "email": "jane.doe.updated@example.com",
   "phoneNumber": "0987654321",
   "profilePicture": "newProfilePicUrl"
 }
 
 ### Get updated user by ID
-# After updating the user, replace <userId> with the actual user ID from the response
-GET http://localhost:5203/api/users/1
+# Replace <userId> with the actual user ID from the response
+GET http://localhost:5203/api/users/<userId>
 Content-Type: application/json
 
-###get all users
-GET http://localhost:5203/api/getAllUsers
+### Get all users
+GET http://localhost:5203/api/users
 Content-Type: application/json

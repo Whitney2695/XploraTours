@@ -1,0 +1,7 @@
+CREATE PROCEDURE getAllTours
+AS
+BEGIN
+    SELECT * FROM Tours;
+END
+
+

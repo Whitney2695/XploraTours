@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Website</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .landing {
+      position: relative;
+      height: 100vh;
+      background-image: url('https://imgs.search.brave.com/X6_Zd-LGkiKrDn0Gi7d956Wd2T9w0-1vRYBlaTq85s4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by90cmF2ZWwtY29u/Y2VwdC13aXRoLWl0/ZW1zLWFycmFuZ2Vt/ZW50LXRvcC12aWV3/XzIzLTIxNDg5NzEx/MDguanBnP3NpemU9/NjI2JmV4dD1qcGc');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: flex-start; /* Align items to the left */
+      align-items: center;
+      padding-left: 20px; /* Add some padding to the left */
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 20px; /* Align to the right */
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul.left {
+      margin-right: auto; /* Push Tours link to the left */
+    }
+
+    nav ul.right {
+      display: flex;
+    }
+
+    nav ul.right li {
+      margin: 0 10px;
+    }
+
+    nav ul.right li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      position: relative;
+      padding: 10px 15px;
+      border-radius: 20px; /* Rounded corners */
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul.right li a:hover {
+      background-color: #f0f0f0; /* Light gray background on hover */
+    }
+
+    .landing-content {
+      text-align: center;
+      color: black;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .landing-content .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .landing-content .hero p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      width:250px;
+      height:50px;
+      background-color: purple;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: rgb(218, 18, 151); /* Darker blue on hover */
+    }
+
+    .target-content {
+      display: none;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .target-content.show {
+      display: block;
+    }
+
+    .target-content h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .target-content p, .target-content ul {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .target-content ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .target-content ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section class="landing">
+    <nav>
+      <ul class="left">
+        <li><a href="#">Tours</a></li>
+      </ul>
+      <ul class="right">
+        <li><a href="#" data-target="home">Home</a></li>
+        <li><a href="#" data-target="news">News</a></li>
+        <li><a href="#" data-target="about">About Us</a></li>
+        <li><a href="#" data-target="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="landing-content">
+      <div class="hero">
+        <h1>Explore the World</h1>
+        <p>Join us on an adventure of a lifetime. Discover new places, experience different cultures, and make unforgettable memories. Our travel guides and tips will help you plan the perfect trip, whether you're looking for a relaxing beach vacation or an exciting mountain trek.</p>
+        <button class="btn btn-primary" onclick="showLogin()">Try Now</button>
+      </div>
+    </div>
+
+    <div class="target-content" id="home">
+      <h2>Welcome to our Home Page!</h2>
+      <p>This is the main page where you can find updates and news about our travel services.</p>
+    </div>
+
+    <div class="target-content" id="news">
+      <h2>Latest Travel News and Updates</h2>
+      <p>Stay informed about the latest travel news, tips, and destinations.</p>
+    </div>
+
+    <div class="target-content" id="about">
+      <h2>About Us</h2>
+      <p>Learn more about our mission, vision, and team who are dedicated to providing exceptional travel experiences.</p>
+    </div>
+
+    <div class="target-content" id="contact">
+      <h2>Contact Us</h2>
+      <ul>
+        <li>+1234567890</li>
+        <li>+1987654321</li>
+        <li>+1654321879</li>
+        <li>+1789456231</li>
+        <li>+1543217890</li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('nav ul.right li a');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const target = this.getAttribute('data-target');
+          const targetContent = document.getElementById(target);
+
+          // Hide all target contents
+          const allTargetContents = document.querySelectorAll('.target-content');
+          allTargetContents.forEach(content => {
+            content.classList.remove('show');
+          });
+
+          // Display the clicked target content
+          targetContent.classList.add('show');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

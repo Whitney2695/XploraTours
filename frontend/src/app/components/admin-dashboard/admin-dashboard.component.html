@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<!-- admin-dashboard.component.html -->
+
+<div class="admin-dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a routerLink="/admin/manage-tours">Manage Tours</a></li>
+            <li><a routerLink="/admin/manage-users">Manage Users</a></li>
+            <li><a routerLink="/admin/update-profile">Update Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Display stats and tour list -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>Users</h3>
+                <p>{{ numberOfUsers }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Tours Available</h3>
+                <p>{{ numberOfTours }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Bookings Made</h3>
+                <p>{{ numberOfBookings }}</p>
+            </div>
+        </div>
+
+        <!-- Tour List -->
+        <div class="tour-list" *ngIf="currentTab === 'manage-tours'">
+            <div *ngFor="let tour of tours">
+                <img [src]="tour.imageUrl" alt="Tour Image">
+                <h4>{{ tour.destination }}</h4>
+                <p>{{ tour.duration }} days</p>
+                <button (click)="softDeleteTour(tour)">Soft Delete</button>
+                <button (click)="editTour(tour)">Edit</button>
+            </div>
+        </div>
+
+        <!-- User Management -->
+        <div class="user-management" *ngIf="currentTab === 'manage-users'">
+            <div *ngFor="let user of users">
+                <h4>{{ user.username }}</h4>
+                <p>Email: {{ user.email }}</p>
+                <button (click)="deleteUser(user)">Delete User</button>
+            </div>
+        </div>
+
+        <!-- Update Profile Form -->
+        <div class="update-profile" *ngIf="currentTab === 'update-profile'">
+            <!-- Implement update profile form -->
+            <form>
+                <label>Name:</label>
+                <input type="text" [(ngModel)]="currentUser.name" name="name">
+                <label>Email:</label>
+                <input type="email" [(ngModel)]="currentUser.email" name="email">
+                <button (click)="updateProfile()">Update Profile</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+/* login.component.css */
+.auth-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .toggle-link {
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  

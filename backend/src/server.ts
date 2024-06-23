@@ -3,6 +3,7 @@ import cors from 'cors';
 import userRoutes from './routes/user.routes';
 import bookingRoutes from './routes/bookings.routes';
 import reviewRoutes from './routes/review.routes';
+import tourRoutes from './routes/tours.routes';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use('/api', userRoutes);
 app.use('/api', bookingRoutes);
 app.use('/api', reviewRoutes);
+app.use('/api', tourRoutes);
 
 // Error handler middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

@@ -1,0 +1,16 @@
+<div class="auth-form">
+    <form (ngSubmit)="register()">
+      <h2>Register</h2>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="registerForm.email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="registerForm.password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+      <p class="toggle-link">Already have an account? <a (click)="toggleForm()">Login</a></p>
+    </form>
+  </div>
+  
